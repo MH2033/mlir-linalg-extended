@@ -6,7 +6,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "LinalgExt/StandaloneDialect.h"
+#include "LinalgExt/LinalgExtDialect.h"
 #include "mlir/IR/Dialect.h"
 #include "mlir/IR/MLIRContext.h"
 #include "mlir/InitAllDialects.h"
@@ -21,10 +21,10 @@
 #include "llvm/Support/ToolOutputFile.h"
 
 #include "LinalgExt/LinalgExtOpsDialect.cpp.inc"
+#include "LinalgExt/Transform/LowerVecVecToLinalg.h"
 
 int main(int argc, char **argv) {
   mlir::registerAllPasses();
-  // TODO: Register standalone passes here.
 
   mlir::DialectRegistry registry;
   registry.insert<mlir::linalgExt::LinalgExtDialect>();

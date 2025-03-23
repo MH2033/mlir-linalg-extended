@@ -6,8 +6,8 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "LinalgExt/StandaloneOps.h"
-#include "LinalgExt/StandaloneDialect.h"
+#include "LinalgExt/LinalgExtDialect.h"
+#include "LinalgExt/LinalgExtOps.h"
 #include "mlir/IR/OpImplementation.h"
 
 #define GET_OP_CLASSES

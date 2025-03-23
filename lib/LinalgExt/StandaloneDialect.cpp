@@ -6,8 +6,8 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "LinalgExt/StandaloneDialect.h"
-#include "LinalgExt/StandaloneOps.h"
+#include "LinalgExt/LinalgExtDialect.h"
+#include "LinalgExt/LinalgExtOps.h"
 
 using namespace mlir;
 using namespace mlir::linalgExt;
