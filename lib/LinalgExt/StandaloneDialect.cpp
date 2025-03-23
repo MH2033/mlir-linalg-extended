@@ -6,19 +6,19 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "Standalone/StandaloneDialect.h"
-#include "Standalone/StandaloneOps.h"
+#include "LinalgExt/StandaloneDialect.h"
+#include "LinalgExt/StandaloneOps.h"
 
 using namespace mlir;
-using namespace mlir::standalone;
+using namespace mlir::linalgExt;
 
 //===----------------------------------------------------------------------===//
 // Standalone dialect.
 //===----------------------------------------------------------------------===//
 
-void StandaloneDialect::initialize() {
+void LinalgExtDialect::initialize() {
   addOperations<
 #define GET_OP_LIST
-#include "Standalone/StandaloneOps.cpp.inc"
+#include "LinalgExt/LinalgExtOps.cpp.inc"
       >();
 }

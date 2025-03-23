@@ -9,11 +9,11 @@
 #ifndef STANDALONE_OPS
 #define STANDALONE_OPS
 
-include "StandaloneDialect.td"
+include "LinalgExtDialect.td"
 include "mlir/Interfaces/InferTypeOpInterface.td"
 include "mlir/Interfaces/SideEffectInterfaces.td"
 
-def Standalone_FooOp : Standalone_Op<"foo", [Pure,
+def LinalgExt_VecVecOp : LinalgExt_Op<"vecvec", [Pure,
                                              SameOperandsAndResultType]> {
     let summary = "Illustrates how to define an operation.";
     let description = [{
@@ -32,12 +32,10 @@ def Standalone_FooOp : Standalone_Op<"foo", [Pure,
         ```
     }];
 
-    let arguments = (ins I32:$input);
-    let results = (outs I32:$res);
+    let arguments = (ins AnyTensor:$lhs, AnyTensor:$rhs);
+    let results = (outs I32:$result);
 
-    let assemblyFormat = [{
-        $input attr-dict `:` type($input)
-    }];
+    let assemblyFormat = "$lhs `,` $rhs attr-dict `:` type($lhs)`,` type($rhs) `->` type($result)";
 }
 
 #endif // STANDALONE_OPS
