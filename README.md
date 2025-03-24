@@ -6,7 +6,7 @@ Linalg Extended is an out-of-tree MLIR dialect designed to extend the capabiliti
 
 ### Prerequisites
 
-- LLVM and MLIR installed on your system (Version: [3f37df](https://github.com/llvm/llvm-project/commit/3f37df5b711773bfd962b703b6d4178e6d16c076)).
+- LLVM and MLIR installed on your system (Version: [3f37df5](https://github.com/llvm/llvm-project/commit/3f37df5b711773bfd962b703b6d4178e6d16c076)).
 - CMake for building the project.
 
 ### Building the Project
