@@ -1,24 +1,36 @@
-# An out-of-tree dialect template for MLIR
+# Linalg Extended: A Standalone MLIR Dialect
 
-This repository contains a template for an out-of-tree [MLIR](https://mlir.llvm.org/) dialect as well as a
-standalone `opt`-like tool to operate on that dialect.
+Linalg Extended is an out-of-tree MLIR dialect designed to extend the capabilities of the Linalg dialect by adding vector-vector multiplication
 
-## How to build
+## Getting Started
 
-This setup assumes that you have built LLVM and MLIR in `$BUILD_DIR` and installed them to `$PREFIX`. To build and launch the tests, run
-```sh
+### Prerequisites
+
+- LLVM and MLIR installed on your system (Version: [3f37df](https://github.com/llvm/llvm-project/commit/3f37df5b711773bfd962b703b6d4178e6d16c076)).
+- CMake for building the project.
+
+### Building the Project
+
+```bash
 mkdir build && cd build
-cmake -G Ninja .. -DMLIR_DIR=$PREFIX/lib/cmake/mlir -DLLVM_EXTERNAL_LIT=$BUILD_DIR/bin/llvm-lit
-cmake --build . --target check-standalone-opt
+cmake -G Ninja ..
 ```
-To build the documentation from the TableGen description of the dialect
-operations, run
-```sh
-cmake --build . --target mlir-doc
-```
-**Note**: Make sure to pass `-DLLVM_INSTALL_UTILS=ON` when building LLVM with
-CMake so that it installs `FileCheck` to the chosen installation prefix.
 
+### Usage
+
+The project includes a custom `linalgext-opt` tool for testing and applying transformations. To lower vecvec operations:
+```bash
+./build/bin/linalgext-opt <input-file-containing-vecvec-op> --lower-vecvec
+```
+
+## Testing
+
+In the test folder you will find run_test.sh which lowers vecvec_test.mlir to affine dialect and unrolls the loops.
+To run it:
+```bash
+cd test
+bash run_test.sh
+```
 ## License
 
-This dialect template is made available under the Apache License 2.0 with LLVM Exceptions. See the `LICENSE.txt` file for more details.
+This project is licensed under the Apache License v2.0 with LLVM Exceptions. See the [LICENSE.txt](LICENSE.txt) file for details.
