@@ -8,9 +8,11 @@ add_mlir_library(MLIRLinalgExtTransform
 
   DEPENDS
   MLIRLinalgExtOpsIncGen
+  MLIRLinalgExtTransformIncGen
 
-  # LINK_LIBS PUBLIC
-  # MLIRIR
-  # MLIRLinalg
-  # MLIRArith
+  LINK_COMPONENTS
+  Core
+
+  LINK_LIBS PUBLIC
+  MLIRIR
 )

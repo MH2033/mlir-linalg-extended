@@ -5,6 +5,7 @@ set(LIBS
         ${conversion_libs}
         MLIROptLib
         MLIRStandalone
+        MLIRLinalgExtTransform
         )
 add_llvm_executable(standalone-opt standalone-opt.cpp)
 

@@ -1,19 +1,12 @@
-// filepath:
-// /home/mh/projects/linalg_ext/include/LinalgExt/Transform/LowerVecVecToLinalg.h
+#ifndef LINALGEXT_TRANSFORMS_LOWERVECVEC_PASS_H
+#define LINALGEXT_TRANSFORMS_LOWERVECVEC_PASS_H
 
-#ifndef LINALGEXT_TRANSFORM_LOWERVECVECTOLINALG_H
-#define LINALGEXT_TRANSFORM_LOWERVECVECTOLINALG_H
+#define DEBUG_TYPE "lower-to-linalg"
 
 #include "mlir/Pass/Pass.h"
+namespace mlir::linalgExt {
+#define GEN_PASS_DECL_LOWERTOLINALGPASS
+#include "LinalgExt/Transform/Passes.h.inc"
+} // namespace mlir::linalgExt
 
-namespace mlir {
-namespace linalgExt {
-
-/// Registers the pass to lower linalgExt.vecvec operations to linalg.generic
-/// operations.
-void registerLowerVecVecPass();
-
-} // namespace linalgExt
-} // namespace mlir
-
-#endif // LINALGEXT_TRANSFORM_LOWERVECVECTOLINALG_H
+#endif // LINALGEXT_TRANSFORMS_LOWERVECVEC_PASS_H

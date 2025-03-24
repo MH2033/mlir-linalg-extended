@@ -31,10 +31,10 @@ def LinalgExt_VecVecOp : LinalgExt_Op<"vecvec", [Pure]> {
         ```
     }];
 
-    let arguments = (ins AnyTensor:$lhs, AnyTensor:$rhs);
+    let arguments = (ins AnyTensor:$lhs, AnyTensor:$rhs, AnyTensor:$res);
     let results = (outs AnyTensor:$result);
 
-    let assemblyFormat = "$lhs `,` $rhs attr-dict `:` type($lhs)`,` type($rhs) `->` type($result)";
+    let assemblyFormat = "$lhs `,` $rhs `,` $res attr-dict `:` type($lhs)`,` type($rhs) `,` type($res) `->` type($result)";
 }
 
 #endif // STANDALONE_OPS

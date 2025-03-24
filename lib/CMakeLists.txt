@@ -1,2 +1,2 @@
 add_subdirectory(LinalgExt)
-# add_subdirectory(Transform)
+add_subdirectory(Transform)
