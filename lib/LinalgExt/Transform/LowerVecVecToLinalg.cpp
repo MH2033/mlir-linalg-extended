@@ -1,7 +1,7 @@
 
 #include "LinalgExt/Transform/LowerVecVecToLinalg.h"
-#include "LinalgExt/LinalgExtDialect.h"
-#include "LinalgExt/LinalgExtOps.h"
+#include "LinalgExt/Dialect/LinalgExtDialect.h"
+#include "LinalgExt/Dialect/LinalgExtOps.h"
 #include "mlir/Dialect/Arith/IR/Arith.h"
 #include "mlir/Dialect/Linalg/IR/Linalg.h"
 #include "mlir/Dialect/SCF/IR/SCF.h"

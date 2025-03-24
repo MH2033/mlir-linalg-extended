@@ -6,8 +6,8 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "LinalgExt/LinalgExtDialect.h"
-#include "LinalgExt/LinalgExtOps.h"
+#include "LinalgExt/Dialect/LinalgExtDialect.h"
+#include "LinalgExt/Dialect/LinalgExtOps.h"
 
 using namespace mlir;
 using namespace mlir::linalgExt;
@@ -19,6 +19,6 @@ using namespace mlir::linalgExt;
 void LinalgExtDialect::initialize() {
   addOperations<
 #define GET_OP_LIST
-#include "LinalgExt/LinalgExtOps.cpp.inc"
+#include "LinalgExt/Dialect/LinalgExtOps.cpp.inc"
       >();
 }

@@ -1,14 +1,2 @@
-add_mlir_dialect_library(MLIRStandalone
-        StandaloneDialect.cpp
-        StandaloneOps.cpp
-
-        ADDITIONAL_HEADER_DIRS
-        ${PROJECT_SOURCE_DIR}/include/LinalgExt
-
-        DEPENDS
-        MLIRLinalgExtOpsIncGen
-
-	LINK_LIBS PUBLIC
-	MLIRIR
-        MLIRInferTypeOpInterface
-	)
+add_subdirectory(Dialect)
+add_subdirectory(Transform)

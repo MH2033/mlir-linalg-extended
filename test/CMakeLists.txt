@@ -7,7 +7,7 @@ configure_lit_site_cfg(
 
 set(STANDALONE_OPT_TEST_DEPENDS
         FileCheck count not
-        standalone-opt
+        linalgext-opt
         )
 
 add_lit_testsuite(check-standalone-opt "Running the standalone-opt regression tests"

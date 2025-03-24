@@ -6,7 +6,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "LinalgExt/LinalgExtDialect.h"
+#include "LinalgExt/Dialect/LinalgExtDialect.h"
 #include "mlir/IR/Dialect.h"
 #include "mlir/IR/MLIRContext.h"
 #include "mlir/InitAllDialects.h"
@@ -20,7 +20,7 @@
 #include "llvm/Support/SourceMgr.h"
 #include "llvm/Support/ToolOutputFile.h"
 
-#include "LinalgExt/LinalgExtOpsDialect.cpp.inc"
+#include "LinalgExt/Dialect/LinalgExtOpsDialect.cpp.inc"
 #include "LinalgExt/Transform/Passes.h"
 
 int main(int argc, char **argv) {
@@ -34,6 +34,7 @@ int main(int argc, char **argv) {
   // include what you need like above. You only need to register dialects that
   // will be *parsed* by the tool, not the one generated
   mlir::linalgExt::registerLinalgExtPasses();
-  return mlir::asMainReturnCode(
-      mlir::MlirOptMain(argc, argv, "Standalone optimizer driver\n", registry));
+  return mlir::asMainReturnCode(mlir::MlirOptMain(
+      argc, argv, "Extended Linalg with Vector-vector multiplication support\n",
+      registry));
 }

@@ -4,10 +4,10 @@ set(LIBS
         ${dialect_libs}
         ${conversion_libs}
         MLIROptLib
-        MLIRStandalone
+        MLIRLinalgExt
         MLIRLinalgExtTransform
         )
-add_llvm_executable(standalone-opt standalone-opt.cpp)
+add_llvm_executable(linalgext-opt linalgext-opt.cpp)
 
-llvm_update_compile_flags(standalone-opt)
-target_link_libraries(standalone-opt PRIVATE ${LIBS})
+llvm_update_compile_flags(linalgext-opt)
+target_link_libraries(linalgext-opt PRIVATE ${LIBS})
