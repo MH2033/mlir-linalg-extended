@@ -1,4 +1,4 @@
-//===- StandaloneOps.td - Standalone dialect ops -----------*- tablegen -*-===//
+//===- LinalgExtOps.td - LinalgExt dialect ops -----------*- tablegen -*-===//
 //
 // This file is licensed under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -6,28 +6,30 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef STANDALONE_OPS
-#define STANDALONE_OPS
+#ifndef LinalgExt_OPS
+#define LinalgExt_OPS
 
 include "LinalgExtDialect.td"
 include "mlir/Interfaces/InferTypeOpInterface.td"
 include "mlir/Interfaces/SideEffectInterfaces.td"
 
 def LinalgExt_VecVecOp : LinalgExt_Op<"vecvec", [Pure]> {
-    let summary = "Performs a vector-vector operation.";
+    let summary = "Performs dot product on input vectors.";
     let description = [{
-        The `linalg_ext.vecvec` operation performs a vector-vector operation
+        The `linalg_ext.vecvec` operation performs a vector-vector dot product
         within the LinalgExt dialect. This operation is pure and ensures that
-        the operands and result have the same type.
+        the operands and result have compatible types.
 
-        This operation takes two tensor arguments and produces a tensor result.
+        This operation takes two tensor arguments (`lhs` and `rhs`) and an 
+        accumulator tensor (`res`) as output, and produces a tensor result.
 
         Example:
 
         ```mlir
-        %lhs = tensor.from_elements [1.0, 2.0, 3.0] : tensor<3xf32>
-        %rhs = tensor.from_elements [4.0, 5.0, 6.0] : tensor<3xf32>
-        %result = linalg_ext.vecvec %lhs, %rhs : tensor<3xf32>, tensor<3xf32> -> tensor<f32>
+        %lhs = tensor.from_elements [1, 2, 3] : tensor<3xi32>
+        %rhs = tensor.from_elements [4, 5, 6] : tensor<3xi32>
+        %res = tensor.empty() : tensor<i32>
+        %result = linalg_ext.vecvec %lhs, %rhs, %res : tensor<3xi32>, tensor<3xi32>, tensor<i32> -> tensor<i32>
         ```
     }];
 
@@ -37,4 +39,4 @@ def LinalgExt_VecVecOp : LinalgExt_Op<"vecvec", [Pure]> {
     let assemblyFormat = "$lhs `,` $rhs `,` $res attr-dict `:` type($lhs)`,` type($rhs) `,` type($res) `->` type($result)";
 }
 
-#endif // STANDALONE_OPS
+#endif // LinalgExt_OPS

@@ -1,4 +1,4 @@
-//===- StandaloneDialect.td - Standalone dialect -----------*- tablegen -*-===//
+//===- LinalgExtDialect.td - LinalgExt dialect -----------*- tablegen -*-===//
 //
 // This file is licensed under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -6,31 +6,31 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef STANDALONE_DIALECT
-#define STANDALONE_DIALECT
+#ifndef LinalgExt_DIALECT
+#define LinalgExt_DIALECT
 
 include "mlir/IR/OpBase.td"
 
 //===----------------------------------------------------------------------===//
-// Standalone dialect definition.
+// LinalgExt dialect definition.
 //===----------------------------------------------------------------------===//
 
 def LinalgExt_Dialect : Dialect {
     let name = "linalgExt";
-    let summary = "A standalone out-of-tree MLIR dialect.";
+    let summary = "The LinalgExt dialect for extended linear algebra operations.";
     let description = [{
-        This dialect is an example of an out-of-tree MLIR dialect designed to
-        illustrate the basic setup required to develop MLIR-based tools without
-        working inside of the LLVM source tree.
+        The LinalgExt dialect provides extended linear algebra operations
+        and abstractions to support vector-vector dot product.
+        It is designed to be used as an out-of-tree MLIR dialect.
     }];
     let cppNamespace = "::mlir::linalgExt";
 }
 
 //===----------------------------------------------------------------------===//
-// Base standalone operation definition.
+// Base LinalgExt operation definition.
 //===----------------------------------------------------------------------===//
 
 class LinalgExt_Op<string mnemonic, list<Trait> traits = []> :
         Op<LinalgExt_Dialect, mnemonic, traits>;
 
-#endif // STANDALONE_DIALECT
+#endif // LinalgExt_DIALECT

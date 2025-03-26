@@ -56,7 +56,6 @@ public:
                 bodyLoc, mulVal, args[2]); // Accumulate the result
             nestedBuilder.create<linalg::YieldOp>(bodyLoc, addVal);
           });
-      LLVM_DEBUG(llvm::dbgs() << "New op: " << dotOp << "\n");
       rewriter.replaceOp(op, dotOp.getResult(0));
       return success();
     }

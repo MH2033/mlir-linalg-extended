@@ -1,4 +1,4 @@
-//===- StandaloneDialect.cpp - Standalone dialect ---------------*- C++ -*-===//
+//===- LinalgExtDialect.cpp - LinalgExt dialect ---------------*- C++ -*-===//
 //
 // This file is licensed under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -13,7 +13,7 @@ using namespace mlir;
 using namespace mlir::linalgExt;
 
 //===----------------------------------------------------------------------===//
-// Standalone dialect.
+// LinalgExt dialect.
 //===----------------------------------------------------------------------===//
 
 void LinalgExtDialect::initialize() {
